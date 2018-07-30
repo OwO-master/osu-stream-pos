@@ -312,6 +312,11 @@ namespace mouse_screen_pos
         {
 
         }
+
+        private void GCTimer_Tick(object sender, EventArgs e)
+        {
+            GC.Collect();
+        }
     }
 
     public class OsuAPI
