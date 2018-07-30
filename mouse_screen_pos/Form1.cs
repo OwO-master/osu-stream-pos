@@ -27,7 +27,6 @@ namespace mouse_screen_pos
         private int alc = 0;
         private int arc = 0;
         private string nowtime = "";
-        bool inputinfo = true;
 
         public Form1()
         {
@@ -38,17 +37,17 @@ namespace mouse_screen_pos
         {
             label1.Text = "Import the osu! profile" + '\n' + "or open a recent profile.";
             textBox1.Visible = false;
-            if (Properties.Settings.Default.Profile == "")
+            if (osu_stream_pos.Properties.Settings.Default.Profile == "")
             {
 
             }
             else
             {
-                nothingToolStripMenuItem.Text = Properties.Settings.Default.Profile;
+                nothingToolStripMenuItem.Text = osu_stream_pos.Properties.Settings.Default.Profile;
             }
             timer.Enabled = false;
-            toolStripStatusLabel1.Text = Properties.Settings.Default.X.ToString();
-            toolStripStatusLabel2.Text = Properties.Settings.Default.Y.ToString();
+            toolStripStatusLabel1.Text = osu_stream_pos.Properties.Settings.Default.X.ToString();
+            toolStripStatusLabel2.Text = osu_stream_pos.Properties.Settings.Default.Y.ToString();
             toolStripStatusLabel3.Text = "Waiting for profile";
             string apicode = "";
             string namecode = "";
@@ -179,7 +178,7 @@ namespace mouse_screen_pos
             else
             {
                 msgannouce = "";
-                Detect_Keystate(Properties.Settings.Default.Profile);
+                Detect_Keystate(osu_stream_pos.Properties.Settings.Default.Profile);
             }
         }
 
@@ -220,11 +219,11 @@ namespace mouse_screen_pos
             }
             else
             {
-                Properties.Settings.Default["Profile"] = openFileDialog1.FileName;
+                osu_stream_pos.Properties.Settings.Default["Profile"] = openFileDialog1.FileName;
             }
-            Properties.Settings.Default["X"] = Convert.ToInt32(toolStripStatusLabel1.Text);
-            Properties.Settings.Default["Y"] = Convert.ToInt32(toolStripStatusLabel2.Text);
-            Properties.Settings.Default.Save();
+            osu_stream_pos.Properties.Settings.Default["X"] = Convert.ToInt32(toolStripStatusLabel1.Text);
+            osu_stream_pos.Properties.Settings.Default["Y"] = Convert.ToInt32(toolStripStatusLabel2.Text);
+            osu_stream_pos.Properties.Settings.Default.Save();
             savelog();
             Close();
         }

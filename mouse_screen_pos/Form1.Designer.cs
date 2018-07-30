@@ -331,6 +331,7 @@
             // 
             // GCTimer
             // 
+            this.GCTimer.Enabled = true;
             this.GCTimer.Tick += new System.EventHandler(this.GCTimer_Tick);
             // 
             // Form1
