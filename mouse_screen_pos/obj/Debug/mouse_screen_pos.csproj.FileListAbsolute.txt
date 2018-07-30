@@ -1,9 +1,0 @@
-C:\Users\kculw\source\repos\mouse_screen_pos\mouse_screen_pos\bin\Debug\mouse_screen_pos.exe.config
-C:\Users\kculw\source\repos\mouse_screen_pos\mouse_screen_pos\bin\Debug\mouse_screen_pos.exe
-C:\Users\kculw\source\repos\mouse_screen_pos\mouse_screen_pos\bin\Debug\mouse_screen_pos.pdb
-C:\Users\kculw\source\repos\mouse_screen_pos\mouse_screen_pos\obj\Debug\mouse_screen_pos.Form1.resources
-C:\Users\kculw\source\repos\mouse_screen_pos\mouse_screen_pos\obj\Debug\mouse_screen_pos.Properties.Resources.resources
-C:\Users\kculw\source\repos\mouse_screen_pos\mouse_screen_pos\obj\Debug\mouse_screen_pos.csproj.GenerateResource.cache
-C:\Users\kculw\source\repos\mouse_screen_pos\mouse_screen_pos\obj\Debug\mouse_screen_pos.csproj.CoreCompileInputs.cache
-C:\Users\kculw\source\repos\mouse_screen_pos\mouse_screen_pos\obj\Debug\mouse_screen_pos.exe
-C:\Users\kculw\source\repos\mouse_screen_pos\mouse_screen_pos\obj\Debug\mouse_screen_pos.pdb
