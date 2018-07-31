@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Windows.Input;
 using System.Net;
+using System.Diagnostics;
 
 namespace mouse_screen_pos
 {
@@ -27,6 +28,9 @@ namespace mouse_screen_pos
         private int alc = 0;
         private int arc = 0;
         private string nowtime = "";
+        private string apicode = "";
+        private string namecode = "";
+        bool playing = false;
 
         public Form1()
         {
@@ -49,8 +53,6 @@ namespace mouse_screen_pos
             toolStripStatusLabel1.Text = osu_stream_pos.Properties.Settings.Default.X.ToString();
             toolStripStatusLabel2.Text = osu_stream_pos.Properties.Settings.Default.Y.ToString();
             toolStripStatusLabel3.Text = "Waiting for profile";
-            string apicode = "";
-            string namecode = "";
             DialogResult information = InputBox("Input your osu! API information", "Name", "API", ref namecode, ref apicode);
             if (information == DialogResult.OK)
             {
@@ -126,7 +128,6 @@ namespace mouse_screen_pos
                     Nowtime(nowtime, rc, "up");
                 }
             }
-
         }
 
         private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -315,6 +316,56 @@ namespace mouse_screen_pos
         private void GCTimer_Tick(object sender, EventArgs e)
         {
             GC.Collect();
+
+            Process[] ps = Process.GetProcessesByName("osu!");
+            if (ps.Length > 0)
+            {
+                String title = null, song = null, formtitle = null;
+
+                /* Save osu! process */
+                Process osu = ps[0];
+
+                if (osu.MainWindowTitle == "")
+                {
+
+                }
+                else
+                { 
+                    /* Parse osu! window Title */
+                    title = osu.MainWindowTitle;
+
+                    /* Check if we're playing a song */
+                    if (title.IndexOf('-') < 0)
+                    {
+                        /* Set default song */
+                        song = title.Substring(title.IndexOf('-') + 1);
+                        Text = namecode + " is playing " + song + " and now selecting song...";
+                        if (playing)
+                        {
+                            textBox1.AppendText(Environment.NewLine + namecode + " stop playing " + formtitle);
+                            playing = false;
+                        }
+                    }
+                    else
+                    {
+                        /* Parse song from title */
+                        formtitle = title.Substring(title.IndexOf('-') + 2);
+
+                        /* Outout song to Console and song_file */
+                        Text =namecode + " is playing " + formtitle;
+
+                        if (!playing)
+                        {
+                            textBox1.AppendText(Environment.NewLine + namecode + " start playing " + formtitle);
+                            playing = true;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Text = "osu! is close.";
+            }
         }
     }
 

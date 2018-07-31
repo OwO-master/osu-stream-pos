@@ -63,7 +63,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.GCTimer = new System.Windows.Forms.Timer(this.components);
+            this.GCTimer_and_osuProcess = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -329,10 +329,11 @@
             this.webBrowser1.TabIndex = 5;
             this.webBrowser1.WebBrowserShortcutsEnabled = false;
             // 
-            // GCTimer
+            // GCTimer_and_osuProcess
             // 
-            this.GCTimer.Enabled = true;
-            this.GCTimer.Tick += new System.EventHandler(this.GCTimer_Tick);
+            this.GCTimer_and_osuProcess.Enabled = true;
+            this.GCTimer_and_osuProcess.Interval = 1000;
+            this.GCTimer_and_osuProcess.Tick += new System.EventHandler(this.GCTimer_Tick);
             // 
             // Form1
             // 
@@ -403,7 +404,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.Timer GCTimer;
+        private System.Windows.Forms.Timer GCTimer_and_osuProcess;
     }
 }
 
