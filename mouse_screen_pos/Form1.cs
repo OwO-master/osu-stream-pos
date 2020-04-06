@@ -56,7 +56,7 @@ namespace mouse_screen_pos
             DialogResult information = InputBox("Input your osu! API information", "Name", "API", ref namecode, ref apicode);
             if (information == DialogResult.OK)
             {
-                if (namecode == "" || apicode == "")
+                if (string.IsNullOrWhiteSpace(namecode) || string.IsNullOrWhiteSpace(apicode))
                 {
                     MessageBox.Show("Please input the information.");
                     Application.Restart();
@@ -393,7 +393,7 @@ namespace mouse_screen_pos
     {
         internal static string GetUser()
         {
-            return "https://osu.ppy.sh/api/get_user?";
+            return "https://osu.ppy.sh/api/v1/get_user?";
         }
     }
 }
